@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Governo RS - Mídia Matrix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg-primary: #262626;
+        --bg-panel: #404040;
+        --border-primary: rgba(251, 186, 0, 0.2);
+        --border-highlight: #FBBA00;
+        
+        --text-primary: #f8fafc;
+        --text-secondary: #e2e8f0;
+        --text-tertiary: #94a3b8;
+        
+        --accent-primary: #FBBA00;
+
+        --color-good: #69A82F;
+        --color-warn: #FBBA00;
+        --color-bad: #E4003A;
+      }
+      body {
+        font-family: 'Public Sans', sans-serif;
+        background-color: var(--bg-primary);
+        color: var(--text-secondary);
+      }
+      .brand-panel {
+        background-color: var(--bg-panel);
+        border: 1px solid var(--border-primary);
+      }
+      @media print {
+        .no-print {
+          display: none !important;
+        }
+        
+        body * {
+          visibility: hidden;
+        }
+
+        .printable-area, .printable-area * {
+          visibility: visible;
+        }
+        
+        .printable-area {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+        }
+
+        @page {
+          size: A4;
+          margin: 1.5cm;
+        }
+        body {
+          background: #fff !important;
+          font-family: sans-serif; /* Use system font for printing */
+        }
+        .brand-panel {
+          background: #fff !important;
+          border: 1px solid #e2e8f0 !important;
+          box-shadow: none !important;
+          padding: 0 !important;
+        }
+        .printable-area * {
+            color: #000 !important;
+            text-shadow: none !important;
+        }
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Public Sans', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                green: '#69A82F',
+                yellow: '#FBBA00',
+                red: '#E4003A',
+                dark: '#262626',
+                panel: '#404040',
+              },
+            }
+          },
+        },
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.4.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dropzone": "https://aistudiocdn.com/react-dropzone@^14.3.8"
+  }
+}
+</script>
+</head>
+  <body class="bg-brand-dark text-slate-200">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
